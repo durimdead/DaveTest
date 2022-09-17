@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public User(string userID, string firstName, string lastName, string address, string phoneNumber, int age)
+        public User(int userID, string firstName, string lastName, string address, string phoneNumber, int age)
         {
             this.userID = userID;
             this.firstName = firstName;
@@ -12,7 +12,7 @@
             this.age = age;
         }
 
-        private string userID { get; set; }
+        private int userID { get; set; }
         private string firstName { get; set; }
         private string lastName { get; set; }
         private string address { get; set; }
