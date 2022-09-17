@@ -1,4 +1,4 @@
-﻿namespace DaveTest.Data
+﻿namespace DaveTest.Data.Interfaces
 {
     public interface IUser
     {

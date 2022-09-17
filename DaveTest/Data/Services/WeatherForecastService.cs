@@ -1,4 +1,6 @@
-namespace DaveTest.Data
+using DaveTest.Data.Models;
+
+namespace DaveTest.Data.Services
 {
     public class WeatherForecastService
     {
