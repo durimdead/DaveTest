@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaveTest", "DaveTest\DaveTest.csproj", "{7BB245BF-5CA6-4485-9174-751E5E217144}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DaveTest.Database", "DaveTest.Database\DaveTest.Database.sqlproj", "{AF817F43-E2FE-416A-B8DB-5743A01F5F89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{7BB245BF-5CA6-4485-9174-751E5E217144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BB245BF-5CA6-4485-9174-751E5E217144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BB245BF-5CA6-4485-9174-751E5E217144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF817F43-E2FE-416A-B8DB-5743A01F5F89}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
