@@ -69,9 +69,14 @@
 </div>
 
 @code {
+    private WeatherForecast[]? forecasts;
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
 }
 @functions {
-    private WeatherForecast[]? forecasts;
+    //private WeatherForecast[]? forecasts;
     private void GenerateData()
     {
         forecasts = ForecastService.GetForecast(DateTime.Now);
