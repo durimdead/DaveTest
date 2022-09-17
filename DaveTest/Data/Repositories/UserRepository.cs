@@ -1,7 +1,7 @@
 ﻿namespace DaveTest.Data.Repositories
 {
     using DaveTest.Data.Interfaces;
-    public class UserRepository : IUser
+    public class UserRepository : IUserRepository
     {
         /// <summary>
         /// Used to create a new user in the database.

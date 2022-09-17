@@ -1,6 +1,6 @@
 ﻿namespace DaveTest.Data.Interfaces
 {
-    public interface IUser
+    public interface IUserRepository
     {
         /// <summary>
         /// Used to create a new user in the database.
