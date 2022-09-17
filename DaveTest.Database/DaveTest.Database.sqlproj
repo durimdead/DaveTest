@@ -59,6 +59,8 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Scripts\CreateDatabase.sql" />
+    <None Include="Scripts\TemporalTables.sql" />
+    <None Include="Scripts\CreateDatabase_simple.sql" />
+    <None Include="Scripts\CreateDatabase_complex.sql" />
   </ItemGroup>
 </Project>
