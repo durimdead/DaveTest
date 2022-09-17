@@ -1,8 +1,9 @@
-﻿namespace DaveTest.Data.Repositories
+﻿using DaveTest.Data.Repositories;
+
+namespace DaveTest.Data.Services
 {
     using DaveTest.Data.Interfaces;
     using DaveTest.Data.Models;
-    using DaveTest.Data.Services;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@
     using System.Diagnostics.Metrics;
     using System.Net;
 
-    public class UserRepository : IUserRepository
+    public class UserService : IUserRepository
     {
         private readonly DaveTestContext _context;
 
@@ -18,7 +19,7 @@
         /// initilaizes appropriate db context for connections
         /// </summary>
         /// <param name="context">database context</param>
-        public UserRepository(DaveTestContext context)
+        public UserService(DaveTestContext context)
         {
             _context = context;
         }
@@ -58,17 +59,7 @@
             string returnValue = string.Empty;
             try
             {
-                // parameterize the data for executing the stored procedure
-                var parameter = new List<SqlParameter>();
-                parameter.Add(new SqlParameter("@userFirstName", firstName));
-                parameter.Add(new SqlParameter("@userLastName", lastName));
-                parameter.Add(new SqlParameter("@userAddress", address));
-                parameter.Add(new SqlParameter("@userPhoneNumber", phoneNumber));
-                parameter.Add(new SqlParameter("@userAge", age));
-                parameter.Add(new SqlParameter("@userID", userID));
-
-                // execute sproc
-                _context.Database.ExecuteSqlRaw("exec usp_UserUpsert @userID, @userFirstName, @userLastName, @userAddress, @userAge, @userPhoneNumber");
+                this._context.usp_UserUpsert(firstName, lastName, address, phoneNumber, age, userID);
             }
             catch (Exception e)
             {
