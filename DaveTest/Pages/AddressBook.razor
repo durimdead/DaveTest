@@ -1,0 +1,79 @@
+﻿@page "/addressbook"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using DaveTest.Data
+@inject WeatherForecastService ForecastService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+<div class="container-fluid">
+    @if (forecasts == null)
+    {
+        <div class="row">
+            <div class="col-4">
+                <button type="button" class="btn btn-primary" @onclick="GenerateData">Generate Data</button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-secondary">Does Nothing</button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-secondary">Seriously</button>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-secondary">Nothing</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success" onclick="console.log('clicked AddUser')">Add User</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>actions</th>
+                            <th>Date</th>
+                            <th>Temp. (C)</th>
+                            <th>Temp. (F)</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var forecast in forecasts)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-warning" name="edit_@forecast.weatherID" id="edit_@forecast.weatherID" data-weatherid="@forecast.weatherID" onclick="console.log('Edit for @forecast.weatherID')">Edit</button>
+                                        <button type="button" class="btn btn-danger" name="delete_@forecast.weatherID" id="delete_@forecast.weatherID" data-weatherid="@forecast.weatherID" onclick="console.log('Delete for @forecast.weatherID')">Delete</button>
+                                    </div>
+                                </td>
+                                <td>@forecast.Date.ToShortDateString()</td>
+                                <td>@forecast.TemperatureC</td>
+                                <td>@forecast.TemperatureF</td>
+                                <td>@forecast.Summary</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+}
+@functions {
+    private WeatherForecast[]? forecasts;
+    private void GenerateData()
+    {
+        forecasts = ForecastService.GetForecast(DateTime.Now);
+    }
+}

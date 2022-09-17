@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@namespace DaveTest.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="DaveTest.styles.css" rel="stylesheet" />
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+</head>
+<body>
+    @RenderBody()
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+@*
+
+        <!-- Used for "information modal" -->
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                // if there is an information message returned from the controller, display it to the user
+                var $informationDetails = document.getElementById('DaveTest_informationDetails');
+                $informationDetails.inner($informationDetails.html().trim());
+                if ($informationDetails.html().length > 0) {
+                    $('#modal_informationMessage').modal('show');
+                }
+            });
+
+            // message - the message to display to the user (displayed as HTML)
+            // action - a function or action to take when the user clicks on the "ok" button
+            function CreateInformationMessage(message, action) {
+                // Enter the html for the information message
+                $('#DaveTest_informationDetails').html(message);
+
+                // If the user passed in an action to take when "ok" button is clicked, set it up here
+                if (action !== undefined) {
+                    $('#button_informationMessageOk').attr('onClick', action);
+                }
+                // else, remove the attribute to make sure nothing that may have been there previously will be executed
+                else {
+                    $('#button_informationMessageOk').removeAttr('onClick');
+                }
+
+                // Show the modal
+                $('#modal_informationMessage').modal('show');
+            }// CreateInformationMessage()
+
+        </script>
+
+        <!-- Begin modal for information message -->
+        <div class="modal fade" id="modal_informationMessage" tabindex="-1" role="dialog" aria-labelledby="informationMessage" aria-hidden="true" style="z-index:2000;" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-standardized-message">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Information</h4>
+                    </div>
+                    <!-- ### END Modal Header ### -->
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 text-left">
+                                    <span id="DaveTest_informationDetails">
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ### END Modal Content ### -->
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" id="button_informationMessageOk" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    </div>
+                    <!-- ### END Modal footer ### -->
+                </div>
+            </div>
+        </div>
+        <!-- #### END modal for information message ### -->
+
+
+*@
+
+</body>
+</html>
+
+
+
+
+
+
+
